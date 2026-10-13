@@ -1,0 +1,222 @@
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333333;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Header */
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.page-header img {
+    border-radius: 50%;
+}
+
+.page-header h1 {
+    color: #ffffff;
+    margin: 0;
+}
+
+.page-header p {
+    margin-bottom: 0;
+}
+
+/* Section headings */
+h2 {
+    color: #243b53;
+}
+
+/* Add Expense section */
+.add-expense-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* Form labels */
+label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Inputs and dropdown */
+input,
+select {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Advanced selector 1: negation pseudo-class */
+input:not([type="submit"]) {
+    background-color: #ffffff;
+}
+
+/* Advanced selector 2: focus pseudo-class */
+input:focus,
+select:focus {
+    outline: 2px solid #2563eb;
+    border-color: #2563eb;
+}
+
+/* Add Expense button */
+button {
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 12px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Expenses section */
+.expenses-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th,
+td {
+    border: 1px solid #cccccc;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Colored table header */
+thead {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+thead th {
+    color: #ffffff;
+}
+
+/* Advanced selector 3: descendant selector */
+.expenses-section td {
+    font-size: 14px;
+}
+
+/* Advanced selector 4: positional pseudo-class */
+tbody tr:nth-child(even) {
+    background-color: #e8f4ff;
+}
+
+/* Advanced selector 5: hover pseudo-class */
+tbody tr:hover {
+    background-color: #d1e7dd;
+}
+
+/* Responsive table container */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Instructions section */
+.instructions-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+details p {
+    margin-left: 10px;
+}
+
+/* Video section */
+.video-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.video-container {
+    max-width: 560px;
+}
+
+.video-container iframe {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    border: none;
+    aspect-ratio: 560 / 315;
+    height: auto;
+}
+
+/* Footer */
+.page-footer {
+    background-color: #243b53;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .page-header img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .page-header h1 {
+        font-size: 22px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}
