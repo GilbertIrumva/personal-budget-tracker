@@ -1,209 +1,305 @@
-/* General page styling */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+
+/* 1. Color palette */
+:root {
+    --primary-color: #1e3a5f;
+    --primary-hover: #152c49;
+    --accent-color: #16a34a;
+    --accent-hover: #15803d;
+    --background-color: #f3f6fa;
+    --card-color: #ffffff;
+    --text-color: #263445;
+    --muted-color: #64748b;
+    --border-color: #dbe3ed;
+    --table-row-color: #f1f5f9;
+    --focus-color: rgba(37, 99, 235, 0.18);
+}
+
+/* 2. Global styles and box model */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
-    color: #333333;
     margin: 0;
-    padding: 20px;
+    padding: 24px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
     line-height: 1.6;
 }
 
-/* Header */
+h1,
+h2 {
+    color: var(--primary-color);
+    font-family: 'Merriweather', serif;
+    line-height: 1.35;
+}
+
+h1 {
+    margin: 0 0 8px;
+    font-size: 2rem;
+}
+
+h2 {
+    margin: 0 0 18px;
+    font-size: 1.4rem;
+}
+
+p {
+    margin-top: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 3. Page header */
 .page-header {
     display: flex;
     align-items: center;
-    gap: 20px;
-    background-color: #2563eb;
-    color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto 28px;
+    padding: 28px;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-left: 6px solid var(--primary-color);
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(30, 58, 95, 0.06);
 }
 
 .page-header img {
-    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 12px;
 }
 
 .page-header h1 {
-    color: #ffffff;
-    margin: 0;
+    color: var(--primary-color);
 }
 
 .page-header p {
     margin-bottom: 0;
+    color: var(--muted-color);
 }
 
-/* Section headings */
-h2 {
-    color: #243b53;
+/* 4. Main content layout */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-/* Add Expense section */
-.add-expense-section {
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+/* 5. Content cards and spacing */
+.add-expense-section,
+.expenses-section,
+.instructions-section,
+.video-section {
+    margin-bottom: 28px;
+    padding: 28px;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(30, 58, 95, 0.05);
 }
 
-/* Form labels */
+/* 6. Form labels */
 label {
     display: block;
     margin-top: 12px;
     margin-bottom: 5px;
-    font-weight: bold;
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
-/* Inputs and dropdown */
+/* 7. Form inputs and dropdown */
 input,
 select {
     display: block;
     width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    font-size: 16px;
+    max-width: 100%;
+    min-height: 46px;
+    padding: 11px 14px;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Advanced selector 1: negation pseudo-class */
 input:not([type="submit"]) {
-    background-color: #ffffff;
+    background-color: var(--card-color);
 }
 
-/* Advanced selector 2: focus pseudo-class */
+input::placeholder {
+    color: #94a3b8;
+}
+
 input:focus,
 select:focus {
-    outline: 2px solid #2563eb;
+    outline: none;
     border-color: #2563eb;
+    box-shadow: 0 0 0 3px var(--focus-color);
 }
 
-/* Add Expense button */
+/* 8. Buttons */
 button {
-    background-color: #2563eb;
-    color: #ffffff;
-    padding: 12px 20px;
+    display: inline-block;
     margin-top: 20px;
+    padding: 12px 24px;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #1d4ed8;
+    background-color: var(--accent-hover);
 }
 
-/* Expenses section */
-.expenses-section {
-    background-color: #ffffff;
-    padding: 20px;
+button:active {
+    transform: translateY(1px);
+}
+
+button:focus-visible {
+    outline: 3px solid #86efac;
+    outline-offset: 3px;
+}
+
+/* 9. Expenses section and table */
+.expenses-section > p {
     margin-bottom: 20px;
-    border-radius: 8px;
+    color: var(--muted-color);
 }
 
-/* Table styling */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    background-color: var(--card-color);
+    text-align: left;
+}
+
+thead {
+    background-color: var(--primary-color);
+    color: #ffffff;
 }
 
 th,
 td {
-    border: 1px solid #cccccc;
-    padding: 12px;
+    padding: 15px 18px;
+    border-bottom: 1px solid var(--border-color);
     text-align: left;
 }
 
-/* Colored table header */
-thead {
-    background-color: #2563eb;
+th {
     color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
-thead th {
-    color: #ffffff;
-}
-
-/* Advanced selector 3: descendant selector */
 .expenses-section td {
-    font-size: 14px;
+    font-size: 0.95rem;
 }
 
-/* Advanced selector 4: positional pseudo-class */
 tbody tr:nth-child(even) {
-    background-color: #e8f4ff;
+    background-color: var(--table-row-color);
 }
 
-/* Advanced selector 5: hover pseudo-class */
 tbody tr:hover {
-    background-color: #d1e7dd;
+    background-color: #e4edf8;
 }
 
-/* Responsive table container */
-.table-container {
-    width: 100%;
-    overflow-x: auto;
+tbody tr:last-child td {
+    border-bottom: none;
 }
 
-/* Instructions section */
-.instructions-section {
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+/* 10. Instructions section */
+.instructions-section details {
+    padding: 4px 0;
 }
 
 summary {
-    font-weight: bold;
+    color: var(--primary-color);
+    font-weight: 700;
     cursor: pointer;
 }
 
-details p {
-    margin-left: 10px;
+summary:hover {
+    color: var(--accent-color);
 }
 
-/* Video section */
-.video-section {
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+details p {
+    margin: 14px 0 0 10px;
+    color: var(--muted-color);
+}
+
+/* 11. Video section */
+.video-section > p {
+    color: var(--muted-color);
 }
 
 .video-container {
-    max-width: 560px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #e2e8f0;
+    border-radius: 10px;
 }
 
 .video-container iframe {
     display: block;
     width: 100%;
-    max-width: 560px;
-    border: none;
-    aspect-ratio: 560 / 315;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
     height: auto;
+    border: none;
 }
 
-/* Footer */
+/* 12. Footer */
 .page-footer {
-    background-color: #243b53;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--primary-color);
     color: #ffffff;
     text-align: center;
-    padding: 15px;
-    border-radius: 8px;
+    font-size: 0.9rem;
+    border-radius: 10px;
 }
 
-/* Small screens */
+.page-footer p {
+    margin-bottom: 0;
+}
+
+/* 13. Responsive design for mobile screens */
 @media (max-width: 600px) {
     body {
-        padding: 10px;
+        padding: 12px;
     }
 
     .page-header {
+        flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 16px;
+        padding: 20px;
     }
 
     .page-header img {
@@ -212,11 +308,27 @@ details p {
     }
 
     .page-header h1 {
-        font-size: 22px;
+        font-size: 1.65rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .add-expense-section,
+    .expenses-section,
+    .instructions-section,
+    .video-section {
+        padding: 18px;
+        margin-bottom: 18px;
     }
 
     th,
     td {
-        padding: 8px;
+        padding: 12px;
+    }
+
+    button {
+        width: 100%;
     }
 }
